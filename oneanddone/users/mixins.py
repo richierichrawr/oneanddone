@@ -25,3 +25,8 @@ class UserProfileRequiredMixin(LoginRequiredMixin, BaseUserProfileRequiredMixin)
     Require a user to be both logged in and have a UserProfile before
     they can interact with the view.
     """
+    def _init_(self):
+        """
+        Place-holder for empty class.  Modify when objects and methods added.
+        """
+        pass
