@@ -12,7 +12,9 @@ class Migration(SchemaMigration):
     )
 
     def forwards(self, orm):
-        # Adding model 'UserProfile'
+        """
+        Adding model 'UserProfile'
+        """
         db.create_table('users_userprofile', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.OneToOneField')(related_name='profile', unique=True, to=orm['auth.User'])),
@@ -22,7 +24,9 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        # Deleting model 'UserProfile'
+        """ 
+        Deleting model 'UserProfile'
+        """
         db.delete_table('users_userprofile')
 
 
