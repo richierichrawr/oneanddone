@@ -41,18 +41,12 @@ class UserTests(TestCase):
         eq_(user.display_name, None)
 
     def test_attempts_finished_count(self):
-        """
-        User tasks started and finished should be counted properly
-        """
         user = UserFactory.create()
         TaskAttemptFactory.create_batch(4, user=user, state=TaskAttempt.FINISHED)
         TaskAttemptFactory.create(user=user, state=TaskAttempt.STARTED)
         eq_(user.attempts_finished_count, 4)
 
     def test_attempts_in_progress(self):
-        """
-        User tasks started and in progress should be counted properly
-        """
         user = UserFactory.create()
         tasks = TaskAttemptFactory.create_batch(4, user=user, state=TaskAttempt.STARTED)
         eq_(set(user.attempts_in_progress), set(tasks))
